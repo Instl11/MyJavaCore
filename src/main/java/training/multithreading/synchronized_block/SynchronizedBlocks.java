@@ -1,4 +1,4 @@
-package training.multithreading;
+package training.multithreading.synchronized_block;
 
 import java.util.ArrayList;
 import java.util.List;

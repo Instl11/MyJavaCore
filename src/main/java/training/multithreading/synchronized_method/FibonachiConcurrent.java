@@ -1,4 +1,4 @@
-package training.multithreading;
+package training.multithreading.synchronized_method;
 
 public class FibonachiConcurrent {
 

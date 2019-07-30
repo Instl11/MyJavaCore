@@ -1,4 +1,6 @@
-package training.multithreading;
+package training.multithreading.creating_threads;
+
+import training.multithreading.ColorScheme;
 
 public class MainThread {
     public static void main(String[] args) throws InterruptedException {

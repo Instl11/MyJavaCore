@@ -1,4 +1,6 @@
-package training.multithreading;
+package training.multithreading.volotile;
+
+import training.multithreading.ColorScheme;
 
 public class VolatileMain {
 
@@ -19,7 +21,6 @@ public class VolatileMain {
             for (int i = 0; i < 10; i++){
                 System.out.println(ColorScheme.BLUE + "Writer increments counter " + (writeLocal + 1));
                 counter = ++writeLocal;
-
                 try {
                     Thread.sleep(500);
                 } catch (InterruptedException e) {
@@ -33,14 +34,12 @@ public class VolatileMain {
 
         @Override
         public void run() {
-
             int readLocal = counter;
             while (readLocal < 10){
                 if (readLocal != counter){
                     System.out.println(ColorScheme.YELLOW + "Reader reads counter " + counter);
                     readLocal = counter;
                 }
-
             }
         }
     }
