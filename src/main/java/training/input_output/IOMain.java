@@ -13,8 +13,14 @@ public class IOMain {
 
         SortedMap<AverageStudentGrade, Set<SubjectGrade>> students = initMap();
 
-        MyWriter writer = new MyWriter();
+
+        FileUtils fileUtils = new FileUtils();
+        fileUtils.processDir();
+
+       /* MyWriter writer = new MyWriter();
         writer.writeToFile(students, "GradeBook.txt");
+
+        writer.writeWithRandomAccess("GradeBook.txt");*/
 
        /* MyReader reader = new MyReader();
    //     reader.readFromFile("GradeBook.txt");
@@ -35,7 +41,7 @@ public class IOMain {
         /*MyReader reader = new MyReader();
         reader.nioReadWithChannel("GradeBook.txt");*/
 
-        writer.nioWriteWithChannel("3.txt");
+   //     writer.nioWriteWithChannel("3.txt");
     }
 
 

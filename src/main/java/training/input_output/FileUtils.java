@@ -33,13 +33,31 @@ public class FileUtils {
     }
 
 
-    public void printNioDetails(String filePath){
+    public void printNioDetails(String filePath) {
 
         Path path = Paths.get(filePath);
         Path path1 = FileSystems.getDefault().getPath(filePath);
         Path path2 = Paths.get(System.getProperty("user.dir"), filePath);
 
         FileSystem fileSystem = path.getFileSystem();
+
+    }
+
+    public void processDir() throws IOException {
+
+
+        Files.createDirectories(Paths.get("temp/a/b/c"));
+
+        Iterable<Path> rootDirectories = FileSystems.getDefault().getRootDirectories();
+        for (Path rootDir : rootDirectories){
+            System.out.println(rootDir);
+        }
+
+        Path dir = Paths.get("temp"); //будет создана в корневой директории нашего проекта
+        try (DirectoryStream<Path> paths = Files.newDirectoryStream(dir, path -> Files.isDirectory(path))){
+            for (Path p : paths)
+                System.out.println(p);
+        }
 
     }
 }
