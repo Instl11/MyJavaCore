@@ -1,5 +1,7 @@
 package training.multithreading.synchronized_block;
 
+import training.multithreading.ColorScheme;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,31 +36,31 @@ public class SynchronizedBlocks {
         System.out.println("Execution time: " + (end - start) + "ms");
     }
 
-    private void copyArrayA() {
-        synchronized (lock1) {
+    private synchronized void copyArrayA() {
+   //     synchronized (lock1) {
             for (int i = 0; i < a.length; i++) {
-                intList1.add(a[i]);
-                System.out.println(intList1);
+   //             intList1.add(a[i]);
+                System.out.println(ColorScheme.BLUE + i);
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-        }
+ //       }
     }
 
     private synchronized void copyArrayB() {
-        synchronized (lock2) {
+  //      synchronized (lock2) {
             for (int i = 0; i < b.length; i++) {
-                intList2.add(b[i]);
-                System.out.println(intList2);
+    //            intList2.add(b[i]);
+                System.out.println(ColorScheme.RED + i);
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }
+  //          }
         }
     }
 
